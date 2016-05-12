@@ -1,0 +1,242 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>NYC Taxi Pickups</title>
+  <meta name="description" content="eportfolio">
+  <meta name="author" content="Jianhao Zhou">
+
+  
+  <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/flatly/bootstrap.min.css" rel="stylesheet" integrity="sha384-XYCjB+hFAjSbgf9yKUgbysEjaVLOXhCgATTEBpCqT1R3jvG5LGRAK5ZIyRbH5vpX" crossorigin="anonymous">
+  <link href='https://fonts.googleapis.com/css?family=Crimson+Text' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
+  <link rel="stylesheet" href="https://cdn.rawgit.com/novus/nvd3/v1.8.1/build/nv.d3.css" />
+  <link rel="stylesheet" type="text/css" href="css/dc.css"/>
+  <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand mybutton" href="#top">NYC Taxi Pickups</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+<!--           <li class="active"><a href="#about">About<span class="sr-only">(current)</span></a></li>
+          <li><a href="#charts">Charts</a></li>
+          <li><a href="#nta">Choropleth</a></li> -->
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="" data-toggle="modal" data-target="#myModal">Contact</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+  <!-- Modal -->
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Contact</h4>
+        </div>
+        <div class="modal-body">
+          For any inquiries, email us at <a class="btn btn-primary emailbutton" role="button" href="mailto:felix.zhou@nyu.edu">felix.zhou@nyu.edu</a>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="bg"></div>
+  <div class="jumbotron" id='top'>
+    <h1 class='googlefont1'>Welcome</h1>
+    <p class='googlefont1'>NYC 2014 Taxi Pickups Visualization</p>
+<!--     <p><a class="btn btn-primary btn-lg" href="#about" role="button"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Learn more</a></p> -->
+  </div>
+
+  <div class="row">
+    <div class="col-md-3" id='about'>
+      <h1>About</h1>
+    </div>
+    <div class="container",class="col-md-9">
+      </br>
+      <p class="col-md-9">
+        This site takes the advantage of 2014 yellow taxi data from 01/01/2014 to 12/31/2014 from <a href="http://www.nyc.gov/html/tlc/html/home/home.shtml", target="_blank">NYC Taxi Limousine Commission</a> and provides a visualization of taxi pickups using <a href="http://leafletjs.com/", target="_blank">Leaflet</a>, <a href="https://cartodb.com/", target="_blank">CartoDB</a>, <a href="http://getbootstrap.com/", target="_blank">Bootstrap</a>, and <a href="http://dc-js.github.io/dc.js/", target="_blank">dc.js</a>. The site is created for the final project of the course Big Data Management and Analysis at <a href="http://cusp.nyu.edu", target="_blank">Center for Urban Science and Progress</a>. </p>
+    </div>
+  </div>
+  </br>
+  </br>
+
+  <div class="row">
+    <div class="col-md-3" id='charts'>
+      <h1>Charts</h1>
+    </div>
+    <div class="container",class="col-md-9">
+      </br>
+      <div class="container",class="col-md-9">
+   <!--    <p class="col-md-9">Let's take a look at the total number of graffiti complaints by quarters, by day of week, by boroughs, by status, and by months. </br></br>There are slightly more complaints in quarter 2 (April, May, and June) than other three quarters. You can have a better sense of the yearly pattern with the monthly chart below. Meanwhile, more complaints arise on weekdays and in mixed use areas. Brooklyn outperforms the other four boroughs while Staten Island has the least complaints.</br></br>For number of complaints by quarters, boroughs, and status, we might be more confident to conclude that larger number of complaints means more graffiti created. For complaints by day of week, however, it may also result from people's tendency to complain on weekdays as opposed to weekends (if for properties near their workplace).</br></br>
+      Explore and interact with the charts!</p>  -->
+      </div>
+    </div>
+  </div>
+    
+  <div class="row">
+    <div class="col-md-3">
+      </br></br></br></br><h5 class='notes'>(Click to filter)</h5>
+    </div>
+    <div class="col-md-9">
+
+      <div id="day-of-week-chart">
+          </br></br>
+          <strong>Day of Week</strong>
+          <a class="reset" href="javascript:dayOfWeekChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+          <div class="clearfix"></div>
+      </div>
+
+      <div id="status-chart">
+      </br></br>
+          <strong>Time of Day</strong>
+          <a class="reset" href="javascript:statusChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+          <div class="clearfix"></div>
+      </div>
+      
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-3">
+      </br></br></br></br><h5 class='notes'></h5>
+    </div>
+    <div class="col-md-9">
+      <div id="quarter-chart">
+        </br></br>
+        <strong>Quarters</strong>
+        <a class="reset" href="javascript:quarterChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+        <div class="clearfix"></div>
+      </div>
+
+      <div id="borough-chart">
+      </br></br>
+        <strong>Boroughs</strong>
+        <a class="reset" href="javascript:boroughChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+      <div class="col-md-3" id='charts'>
+        </br></br></br></br><h5 class='notes'>(Select a time range to zoom in)</h5>
+      </div> 
+      <div id="monthly-volume-chart", class="col-md-9"></br></br>
+        <strong>Monthly Number of Taxi Pickups</strong>
+      </div>
+  </div>
+  </br></br>
+
+<!--   <div class="row">
+    <div class="col-md-3" id='nta'>
+      <h1>Choropleth</h1>
+    </div>
+    <div class="container",class="col-md-9">
+      </br>
+      <p class="col-md-9"></p>
+    </div>
+  </div>
+  </br>
+
+  <div class="row">
+    <div class="col-md-3">
+          <h5 class='notes'>Neighborhood</br></br>(Please hover over a neighborhood)</h5></br>
+
+    </div>
+    <div class="container",class="col-md-9">
+      <div id="zipmap"></div>
+    </div>
+  </div>
+  </br>
+  </br>
+  </br> -->
+
+
+<!--   <div class="row">
+    <div class="col-md-3" id='zip'>
+      <h1>Choropleth</h1>
+    </div>
+    <div class="container",class="col-md-9">
+      </br>
+      <p class="col-md-9">The graffiti complaints by zip code share a similar pattern with those by neighborhood tabulation area.</p>
+    </div>
+  </div>
+  </br>
+  <div class="row">
+    <div class="col-md-3">
+        <h5 class='notes'>By Zip Code </br></br>(Please click a zip code)</h5></br>
+    </div>
+    <div class="container",class="col-md-9">
+      <iframe width="820" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" title="GraffitiByZip" src="//felixzhou.maps.arcgis.com/apps/Embed/index.html?webmap=f2754acb8f7f4d8b813d89db9f9fae20&amp;extent=-74.5982,40.4033,-73.2963,41.033&amp;zoom=true&amp;scale=true&amp;search=true&amp;searchextent=true&amp;legend=true&amp;basemap_gallery=true&amp;disable_scroll=true&amp;theme=light"></iframe>
+      </br>
+      </br>
+    </div>
+  </div>
+  </br></br> -->
+        
+<!-- 
+  <div class="row">
+    <div class="col-md-3" id='TimeSeries'>
+      <h1>Time Series</h1>
+    </div>
+    <div class="container",class="col-md-9">
+      </br>
+      <p class="col-md-9">The time series captures the created date of each graffiti complaint from January 2010 to March 2016. It shows a similar city-wide pattern as Choropleth maps above but with seasonal fluctuations.</p>
+    </div>
+  </div>
+  </br>
+
+  <div class="row">
+    <div class="col-md-3">
+        <h5 class='notes'>(Control using the time slider)</h5></br>
+    </div>
+    <div class="container",class="col-md-9">
+      <div id="TimeSeriesMap"></div>
+    </div>
+  </div>
+  </br> -->
+
+  <script src="js/jquery.js"></script>
+  <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/d3.js"></script>
+  <script src="https://cdn.rawgit.com/novus/nvd3/v1.8.1/build/nv.d3.js"></script>
+  <script type="text/javascript" src="js/crossfilter.js"></script>
+  <script type="text/javascript" src="js/dc.js"></script>
+  <script type="text/javascript" src="js/colorbrewer.js"></script>
+  <script src="js/javascript.js"></script> 
+  <script src="charts.js"></script> 
+  
+ 
+</body>
+</html>
