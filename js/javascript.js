@@ -12,44 +12,44 @@
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
     });
 
-    // Choropleth
-    var layerUrl1 = 'https://jz1894.cartodb.com/api/v2/viz/19c01f9c-fe7f-11e5-a018-0ecfd53eb7d3/viz.json';
+    // // Choropleth
+    // var layerUrl1 = 'https://jz1894.cartodb.com/api/v2/viz/19c01f9c-fe7f-11e5-a018-0ecfd53eb7d3/viz.json';
     
-    var map1 = new L.Map('zipmap', { 
-      center: [40.7127,-74.0059],
-      zoom: 10
-    });
+    // var map1 = new L.Map('zipmap', { 
+    //   center: [40.7127,-74.0059],
+    //   zoom: 10
+    // });
 
-    L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',{
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
-    }).addTo(map1);
+    // L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',{
+    //   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+    // }).addTo(map1);
     
-    cartodb.createLayer(map1, layerUrl1)
-      .addTo(map1)
-      .on('done', function(layer) {
-      }).on('error', function() {
-        //log the error
-    });
+    // cartodb.createLayer(map1, layerUrl1)
+    //   .addTo(map1)
+    //   .on('done', function(layer) {
+    //   }).on('error', function() {
+    //     //log the error
+    // });
 
 
-    // Times Series
-    var layerUrl2 = 'https://jz1894.cartodb.com/api/v2/viz/86bd6dc4-ef21-11e5-a907-0e3ff518bd15/viz.json';
+    // // Times Series
+    // var layerUrl2 = 'https://jz1894.cartodb.com/api/v2/viz/86bd6dc4-ef21-11e5-a907-0e3ff518bd15/viz.json';
 
-    var map2 = new L.Map('TimeSeriesMap', { 
-      center: [40.7127,-74.0059],
-      zoom: 10
-    });
+    // var map2 = new L.Map('TimeSeriesMap', { 
+    //   center: [40.7127,-74.0059],
+    //   zoom: 10
+    // });
 
-    L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',{
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
-    }).addTo(map2);
+    // L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',{
+    //   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+    // }).addTo(map2);
 
-    cartodb.createLayer(map2, layerUrl2)
-      .addTo(map2)
-      .on('done', function(layer) {
-      }).on('error', function() {
-        //log the error
-    });
+    // cartodb.createLayer(map2, layerUrl2)
+    //   .addTo(map2)
+    //   .on('done', function(layer) {
+    //   }).on('error', function() {
+    //     //log the error
+    // });
 
    
 

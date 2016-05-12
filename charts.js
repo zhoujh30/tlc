@@ -60,7 +60,7 @@ var statusChart = dc.rowChart('#status-chart');
 //d3.json('data.json', function(data) {...};
 //jQuery.getJson('data.json', function(data){...});
 //```
-d3.csv('https://db.tt/EMTmn3vi', function (data) {
+d3.csv('https://dl.dropboxusercontent.com/u/35521609/Data/tlc2014trips.csv', function (data) {
     // Since its a csv file we need to format the data a bit.
     var dateFormat = d3.time.format('%Y-%m-%d');
     var numberFormat = d3.format('.2f');
